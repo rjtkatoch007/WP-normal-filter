@@ -1,0 +1,37 @@
+/*
+ul.simplefilter {
+    margin-bottom: 20px !important;
+}
+
+ul.simplefilter li {
+    color: white;
+    cursor: pointer;
+    background-color: #ed145b;
+    padding: 1rem 2rem;
+}
+
+ul.simplefilter li.active {
+    background-color: #212121;
+}
+*/
+.card {
+    height: 300px;
+    border: 0px;
+    padding: 15px;
+}
+
+.filter-container {
+    margin: 0px;
+}
+
+.filtr-title {
+    position: absolute;
+    bottom: 20px;
+    padding: 5px;
+    background: #e3e3e3;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
