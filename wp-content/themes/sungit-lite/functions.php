@@ -493,9 +493,9 @@ function vb_filter_posts_sc($atts) {
     if (count($terms)) :
         ob_start(); ?>
             <div id="container-async" data-paged="<?php echo $a['per_page']; ?>" class="sc-ajax-filter">
-                <ul class="nav-filter">
+                <ul class="nav-filter btn-group simplefilter d-flex p-2">
                     <?php foreach ($terms as $term) : ?>
-                        <li<?php if ($term->term_id == $a['active']) :?> class="active"<?php endif; ?>>
+                        <li<?php if ($term->term_id == $a['active']) :?> class="active"<?php endif; ?> class="btn m-1 fltr-controls btn-primary badge-pill">
                             <a href="<?php echo get_term_link( $term, $term->taxonomy ); ?>" data-filter="<?php echo $term->taxonomy; ?>" data-term="<?php echo $term->slug; ?>" data-page="1">
                                 <?php echo $term->name; ?>
                             </a>
