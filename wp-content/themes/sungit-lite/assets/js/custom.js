@@ -15,10 +15,10 @@
 			$status.text('Loading posts ...');
 
 			$.ajax({
-	            		url: bobz.ajax_url,
+	            		url: rjt.ajax_url,
 	            		data: {
 	            			action: 'do_filter_posts',
-					nonce: bobz.nonce,
+					nonce: rjt.nonce,
 					params: $params
 	            		},
 	            		type: 'post',

@@ -214,8 +214,8 @@ function sungit_lite_scripts() {
 	wp_enqueue_script( 'sungit-lite-app', get_template_directory_uri() . '/assets/js/app.js', array('jquery'), '20160913', true );
 	wp_enqueue_script( 'filterizr', get_template_directory_uri() . '/assets/js/jquery.filterizr.min.js', array(), '3.3.7', true );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/assets/js/custom.js', array(), '3.3.7', true );
-	wp_localize_script( 'custom', 'bobz', array(
-        'nonce'    => wp_create_nonce( 'bobz' ),
+	wp_localize_script( 'custom', 'rjt', array(
+        'nonce'    => wp_create_nonce( 'rjt' ),
         'ajax_url' => admin_url( 'admin-ajax.php' )
     ));
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), '3.3.7', true );	
@@ -368,7 +368,7 @@ add_action( 'init', 'custom_portfolio_category', 0 );
  */
 function vb_filter_posts() {
 
-    if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'bobz' ) )
+    if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'rjt' ) )
         die('Permission denied');
 
     /**
@@ -474,7 +474,6 @@ function vb_filter_posts() {
 add_action('wp_ajax_do_filter_posts', 'vb_filter_posts');
 add_action('wp_ajax_nopriv_do_filter_posts', 'vb_filter_posts');
 
-
 /**
  * Shortocde for displaying terms
  */
@@ -513,8 +512,6 @@ function vb_filter_posts_sc($atts) {
     return $result;
 }
 add_shortcode( 'ajax_filter_posts', 'vb_filter_posts_sc');
-
-
 
 /**
  * Pagination
