@@ -10,7 +10,7 @@ get_header(); ?>
             <div class="row">                
                 <div class="col-md-12">
                     <main id="main" class="site-main clearfix">
-					<?php echo do_shortcode('［ajax_filter_posts per_page="1"］'); ?>
+					<?php echo do_shortcode('[ajax_filter_posts per_page="1"]'); ?>
                     </main>
 	            </div>
 	        </div>

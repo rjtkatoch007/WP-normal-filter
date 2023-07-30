@@ -207,9 +207,7 @@ function sungit_lite_scripts() {
 	$sungit_lite_theme_options = sungit_lite_theme_options();
     $sungit_lite_style = sungit_lite_header_style();
     wp_add_inline_style( 'sungit-lite-style', $sungit_lite_style );
-    wp_enqueue_style( 'sungit-lite-allstyles', get_template_directory_uri() . '/assets/css/sungit-lite.css' );
-	//wp_enqueue_style( 'foundation', "https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" );
-	//wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css' );
+    wp_enqueue_style( 'sungit-lite-allstyles', get_template_directory_uri() . '/assets/css/sungit-lite.css' );	
 	wp_enqueue_script( 'jquery-slick', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '1.6.0', true );
 	wp_enqueue_script( 'jquery-jaudio', get_template_directory_uri() . '/assets/js/jaudio.js', array('jquery'), '0.2', true );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '3.3.7', true );
@@ -220,8 +218,7 @@ function sungit_lite_scripts() {
         'nonce'    => wp_create_nonce( 'bobz' ),
         'ajax_url' => admin_url( 'admin-ajax.php' )
     ));
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), '3.3.7', true );
-	//wp_enqueue_script( 'foundation', "https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), '3.3.7', true );	
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -367,7 +364,7 @@ function custom_portfolio_category() {
 add_action( 'init', 'custom_portfolio_category', 0 );
 
 /**
- * AJAC filter posts by taxonomy term
+ * filter posts by taxonomy term
  */
 function vb_filter_posts() {
 
@@ -479,15 +476,15 @@ add_action('wp_ajax_nopriv_do_filter_posts', 'vb_filter_posts');
 
 
 /**
- * Shortocde for displaying terms filter and results on page
+ * Shortocde for displaying terms
  */
 function vb_filter_posts_sc($atts) {
 
     $a = shortcode_atts( array(
         'tax'      => 'category', // Taxonomy
-        'terms'    => false, // Get specific taxonomy terms only
+        'terms'    => false, // Get specific taxonomy terms
         'active'   => false, // Set active term by ID
-        'per_page' => 12 // How many posts per page
+        'per_page' => 12 
     ), $atts );
 
     $result = NULL;
