@@ -169,7 +169,7 @@ if ( ! function_exists( 'sungit_lite_header_style' ) ) :
         $header_text_color = get_header_textcolor();
 
 
-            $output ='.sl-header-sec .nav-wrapper .navbar .navbar-brand,.site-description {
+            $output ='.sl-header-sec .nav-wrapper .nacustomar .nacustomar-brand,.site-description {
                         color: #'.esc_attr( $header_text_color ).' }';
             return $output;
     }
@@ -366,7 +366,7 @@ add_action( 'init', 'custom_portfolio_category', 0 );
 /**
  * filter posts by taxonomy term
  */
-function vb_filter_posts() {
+function custom_filter_posts() {
 
     if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'rjt' ) )
         die('Permission denied');
@@ -449,7 +449,7 @@ function vb_filter_posts() {
             /**
              * Pagination
              */
-            vb_ajax_pager($qry,$page);
+            custom_ajax_pager($qry,$page);
 
             $response = [
                 'status'=> 200,
@@ -471,13 +471,13 @@ function vb_filter_posts() {
     die(json_encode($response));
 
 }
-add_action('wp_ajax_do_filter_posts', 'vb_filter_posts');
-add_action('wp_ajax_nopriv_do_filter_posts', 'vb_filter_posts');
+add_action('wp_ajax_do_filter_posts', 'custom_filter_posts');
+add_action('wp_ajax_nopriv_do_filter_posts', 'custom_filter_posts');
 
 /**
  * Shortocde for displaying terms
  */
-function vb_filter_posts_sc($atts) {
+function custom_filter_posts_sc($atts) {
 
     $a = shortcode_atts( array(
         'tax'      => 'category', // Taxonomy
@@ -511,12 +511,12 @@ function vb_filter_posts_sc($atts) {
 
     return $result;
 }
-add_shortcode( 'ajax_filter_posts', 'vb_filter_posts_sc');
+add_shortcode( 'ajax_filter_posts', 'custom_filter_posts_sc');
 
 /**
  * Pagination
  */
-function vb_ajax_pager( $query = null, $paged = 1 ) {
+function custom_ajax_pager( $query = null, $paged = 1 ) {
 
     if (!$query)
         return;
